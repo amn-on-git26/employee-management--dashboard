@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Management Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Employee Management Dashboard</p>
+          <h1>Manage your workforce with ease</h1>
+          <p>
+            Keep employee records organized with CRUD actions, smart search, filtering, sorting,
+            and pagination.
+          </p>
+        </div>
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+          🌙
+        </button>
+      </header>
+
+      <main class="dashboard-grid">
+        <section class="card form-card">
+          <h2 id="formTitle">Add Employee</h2>
+          <form id="employeeForm">
+            <input type="hidden" id="employeeId" />
+            <div class="field-grid">
+              <label>
+                Full Name
+                <input id="name" name="name" placeholder="Aman Sharma" required />
+              </label>
+              <label>
+                Email
+                <input id="email" name="email" type="email" placeholder="aman@example.com" required />
+              </label>
+              <label>
+                Department
+                <select id="department" name="department" required></select>
+              </label>
+              <label>
+                Role
+                <input id="role" name="role" placeholder="Frontend Developer" required />
+              </label>
+              <label>
+                Salary
+                <input id="salary" name="salary" type="number" min="0" step="1000" required />
+              </label>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="primary-btn">Save Employee</button>
+              <button type="button" id="resetFormBtn" class="secondary-btn">Cancel</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="card table-card">
+          <div class="toolbar">
+            <label class="search-box">
+              <span>🔎</span>
+              <input id="searchInput" type="search" placeholder="Search by name or email" />
+            </label>
+            <select id="deptFilter" aria-label="Filter by department"></select>
+            <select id="sortSelect" aria-label="Sort employees">
+              <option value="name-asc">Name (A-Z)</option>
+              <option value="name-desc">Name (Z-A)</option>
+              <option value="salary-asc">Salary (Low-High)</option>
+              <option value="salary-desc">Salary (High-Low)</option>
+            </select>
+          </div>
+
+          <div class="summary-row">
+            <p id="employeeCount">0 employees</p>
+            <p id="pageInfo">Page 1 of 1</p>
+          </div>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Department</th>
+                  <th>Role</th>
+                  <th>Salary</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="employeeTableBody"></tbody>
+            </table>
+          </div>
+
+          <div id="pagination" class="pagination"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
