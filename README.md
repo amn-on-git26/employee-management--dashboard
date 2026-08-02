@@ -20,13 +20,4 @@ python -m http.server 8000
 
 Then visit http://127.0.0.1:8000/
 
-## Upload to GitHub
 
-```bash
-git init
-git add .
-git commit -m "Initial employee dashboard"
-git branch -M main
-git remote add origin <your-github-repo-url>
-git push -u origin main
-```
